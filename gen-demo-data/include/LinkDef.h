@@ -4,7 +4,7 @@
 // #  pragma link off all classes;
 // #  pragma link off all functions;
 
-#pragma link C++ class TObjInSTL + ;
-#pragma link C++ class TOverrideStreamer - ;
+#    pragma link C++ class TObjToSave + ;
+#    pragma link C++ class TOverrideStreamer - ;
 
 #endif

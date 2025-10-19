@@ -24,7 +24,7 @@ target_link_libraries(gen-data
 )
 
 ROOT_GENERATE_DICTIONARY(MyRootDict
-        ${CMAKE_CURRENT_LIST_DIR}/include/TObjInSTL.hh
+        # ${CMAKE_CURRENT_LIST_DIR}/include/TObjToSave.hh
         ${CMAKE_CURRENT_LIST_DIR}/include/TOverrideStreamer.hh
     LINKDEF ${CMAKE_CURRENT_LIST_DIR}/include/LinkDef.h
     MODULE gen-data

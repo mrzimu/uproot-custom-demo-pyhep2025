@@ -1,7 +1,6 @@
-#include "TOverrideStreamer.hh"
 #include <TObject.h>
 
-#include <iostream>
+#include "TOverrideStreamer.hh"
 
 ClassImp( TOverrideStreamer );
 
@@ -22,12 +21,7 @@ void TOverrideStreamer::Streamer( TBuffer& b ) {
         // Read the tag
         unsigned int tag;
         b >> tag;
-        if ( tag != 0x12345678 )
-        {
-            std::cerr << "Error: Unexpected tag value: " << std::hex << tag << std::dec
-                      << std::endl;
-            return;
-        }
+        if ( tag != 0x12345678 ) { throw std::runtime_error( "Unexpected tag value." ); }
 
         b >> m_double;
     }

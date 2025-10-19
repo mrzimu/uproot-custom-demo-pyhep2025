@@ -1,6 +1,6 @@
 import awkward.contents
 import awkward.forms
-from uproot_custom import AsCustom, AsGroupedMap, Factory, registered_factories
+from uproot_custom import Factory
 
 from .my_reader_cpp import OverrideStreamerReader
 
@@ -43,23 +43,3 @@ class OverrideStreamerFactory(Factory):
             ],
             ["m_int", "m_double"],
         )
-
-
-#################################################################
-# Specify the branches that need to use `uproot-custom` to handle
-#################################################################
-AsCustom.target_branches |= {
-    "/my_tree:override_streamer",
-    "/my_tree:obj_in_stl/m_objVec",
-}
-
-# Due to the bug fixed in https://github.com/scikit-hep/uproot5/pull/1505,
-# we need an "AsGroupedMap" to extract the streamer information correctly.
-AsGroupedMap.target_branches |= {
-    "/my_tree:obj_in_stl/m_objMap/m_objMap.second",
-}
-
-################################################
-# Register the custom factory to `uproot-custom`
-################################################
-registered_factories.add(OverrideStreamerFactory)
