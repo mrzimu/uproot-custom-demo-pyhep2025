@@ -1,0 +1,4 @@
+cmake
+python3-zmq
+libzmq5
+libzmq3-dev
